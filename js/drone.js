@@ -1,3 +1,6 @@
+// Thanks to Matt Diamond and his Javascript Drone
+// http://matt-diamond.com/drone.html
+
 var context = new AudioContext();
 
 var gain = context.createGain();
@@ -44,4 +47,4 @@ function generate_drone(co2ppm){
 
 function rand(min, max) {
     return Math.random() * (max - min) + min;
-    }
+}
