@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <title>GHG.EARTH</title>
+
+    <meta name="description" content="GHG.EARTH">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="ghg.css">
+
+    <script src="js/jquery-3.0.0.min.js"></script >
+    <script src="js/drone.js"></script>
+    <script>
+      $.getJSON("/mauna-loa-co₂-latest.json", function(data) {
+        var co2 = data["co2"];
+        var date = data["date"];
+        $("#co2").html(co2);
+        $("#date").html(date);
+        generate_drone(co2);
+      });
+    </script>
+
+  </head>
+
+  <body>
+
+    <div id="box">
+      <div>
+	<span id="co2"></span>
+	<br >
+	CO₂ ppm at Mauna Loa on <span id="date"></span>.
+	<br> <br>
+	<a href="https://www.miskatonic.org/ghg.earth/" style="font-size: smaller;">Details</a>.
+      </div>
+    </div>
+  </body>
+
+</html>
