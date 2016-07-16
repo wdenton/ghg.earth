@@ -1,5 +1,11 @@
+html {
+    height: 100%;
+}
+
 body {
-    background: #282;
+    background: linear-gradient(to bottom, #6698FF, #82CAFF);
+    height: 100%;
+    margin: 0;
 }
 
 #box {
@@ -30,4 +36,8 @@ a:active {
 
 a:visited {
     color: black;
+}
+
+p.details {
+    font-size: smaller;
 }
