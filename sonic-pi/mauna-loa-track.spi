@@ -1,0 +1,26 @@
+require 'open-uri'
+
+use_bpm 4*60 # A year in three seconds
+
+use_synth :hoover
+
+mlo_data = "ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt"
+
+ppm = []
+
+open(mlo_data) do |f|
+  raw = f.read
+  raw.each_line do |line|
+    next if /^#/.match(line)
+    (yyyy, month, decimal_date, average, interpolated, trend, days) = line.split("\s") # Splits nicely on multiple spaces
+    next if yyyy == "1958" # So drum kicks on January
+    ppm << interpolated
+  end
+end
+
+ppm.each_with_index do |p, i|
+  midi = 12 * Math::log(p.to_f/440.0, 2) + 69
+  play midi, sustain: 1
+  sample :drum_heavy_kick if i % 12 == 0
+  sleep 1
+end

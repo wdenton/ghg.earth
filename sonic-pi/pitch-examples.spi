@@ -1,0 +1,15 @@
+# Basic PPM to MIDI sound player
+
+define :ppm_to_midi do |ppm|
+  midi = 12 * Math::log(ppm/440.0, 2) + 69
+  play midi, attack: 1, sustain: 3, decay: 1
+  sleep 7
+end
+
+use_synth :hoover # piano doesn't do microtones
+
+ppm_to_midi(280)
+ppm_to_midi(350)
+ppm_to_midi(400)
+ppm_to_midi(490)
+ppm_to_midi(1370)
