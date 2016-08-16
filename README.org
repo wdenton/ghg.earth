@@ -1,5 +1,15 @@
+* GHG.EARTH
+
+This is the code behind [[http://ghg.earth/][GHG.EARTH]].
+
 * Details
+
+See [[https://www.miskatonic.org/ghg.earth/][About GHG.EARTH]].
 
 * Thanks
 
+To [[http://matt-diamond.com/][Matt Diamond]] for permission to use his code for the initial drone composition.
+
 * License
+
+GPL v3.  See COPYING.
