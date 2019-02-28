@@ -1,3 +1,15 @@
+# HSTS
+# See http://mikkel.hoegh.org/blog/2010/09/09/protecting-your-users-phishing-apache-rules-hsts/
+# (15768000 seconds = 6 months)
+#
+# See http://hstspreload.appspot.com/ about includeSubdomains and preload, and being in the
+# Chrome preload list.
+Header add Strict-Transport-Security "max-age=10886400; includeSubDomains; preload"
+
+# HSTS
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
 <IfModule mod_expires.c>
 Header merge Cache-Control max-age=21600
 Header merge Cache-Control must-revalidate
